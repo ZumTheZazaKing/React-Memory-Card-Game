@@ -10,6 +10,7 @@ import {useAuthState} from 'react-firebase-hooks/auth';
 import { SignIn, auth } from './Auth';
 import Navbar from './Navbar';
 import Ingame from './Ingame';
+import { Endgame } from './Endgame';
 
 const firestore = firebase.firestore();
 
@@ -21,6 +22,7 @@ function Main(){
   return (<div>
     <Navbar score={score} lives={lives}/>
     <Ingame/>
+    <Endgame/>
   </div>)
 }
 

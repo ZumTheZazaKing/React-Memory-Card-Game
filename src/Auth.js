@@ -14,6 +14,6 @@ export function SignIn(){
   
 export function SignOut(){
     return auth.currentUser && (<div>
-      <button onClick={() => auth.signOut()}>Sign Out</button>
+      <button id="signOut" onClick={() => auth.signOut()}>Sign Out</button>
     </div>)
 }
