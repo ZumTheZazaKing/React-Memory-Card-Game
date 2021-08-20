@@ -1,4 +1,3 @@
-import logo from './images/logo.svg';
 import './App.css';
 import { useState } from 'react';
 
@@ -10,6 +9,7 @@ import {useAuthState} from 'react-firebase-hooks/auth';
 
 import { SignIn, auth } from './Auth';
 import Navbar from './Navbar';
+import Ingame from './Ingame';
 
 const firestore = firebase.firestore();
 
@@ -19,6 +19,7 @@ function Main(){
 
   return (<div>
     <Navbar score={score}/>
+    <Ingame/>
   </div>)
 }
 

@@ -37,5 +37,33 @@ body #navbar button {
   background-color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
+body #ingame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 728px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+body #ingame div {
+  padding: 10px;
+  background-color: #251f4d;
+  width: 100px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+body #ingame div:hover {
+  transform: rotateY(180deg);
+  transition: 0.5s ease-in;
+}
 
 /*# sourceMappingURL=App.css.map */
