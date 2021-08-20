@@ -7,11 +7,25 @@ import 'firebase/firestore';
 
 import {useAuthState} from 'react-firebase-hooks/auth';
 
+import { SignIn, SignOut, auth } from './Auth';
+
+const firestore = firebase.firestore();
+
+function Main(){
+  return (<div>
+    <h1>Main</h1>
+    <SignOut/>
+  </div>)
+}
+
+
 
 function App() {
+  let [user] = useAuthState(auth);
+
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      {user ? <Main/> : <SignIn/>}
     </div>
   );
 }
