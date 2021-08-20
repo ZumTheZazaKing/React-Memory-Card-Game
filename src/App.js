@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 import firebase from './firebase';
 import 'firebase/auth';
@@ -7,14 +8,17 @@ import 'firebase/firestore';
 
 import {useAuthState} from 'react-firebase-hooks/auth';
 
-import { SignIn, SignOut, auth } from './Auth';
+import { SignIn, auth } from './Auth';
+import Navbar from './Navbar';
 
 const firestore = firebase.firestore();
 
 function Main(){
+
+  let [score, setScore] = useState(0);
+
   return (<div>
-    <h1>Main</h1>
-    <SignOut/>
+    <Navbar score={score}/>
   </div>)
 }
 
