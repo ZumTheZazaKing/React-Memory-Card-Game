@@ -18,10 +18,20 @@ function Main(){
 
   let [lives, setLives] = useState(5);
   let [time, setTime] = useState(0);
+  let [searchingPhase, setSearchingPhase] = useState(false);
+  let [previousCard, setPreviousCard] = useState("");
 
   return (<div>
     <Navbar time={time} lives={lives}/>
-    <Ingame/>
+
+    <Ingame 
+    searchingPhase={searchingPhase} 
+    setLives={setLives} 
+    previousCard={previousCard}
+    setSearchingPhase={setSearchingPhase}
+    setPreviousCard={setPreviousCard}
+    />
+
     <Endgame time={time}/>
   </div>)
 }

@@ -61,11 +61,8 @@ body{
             border-radius: 10px;
             cursor: pointer;
             perspective: 1000px;
-        }
-        div:hover{
-            transform: rotateY(180deg);
             transition: .5s ease-in;
-            
+            transform: rotateY(180deg);
         }
     }
 
@@ -113,6 +110,10 @@ body{
 
     .hide{
         display: none;
+    }
+
+    .clear{
+        opacity: 0;
     }
 
 }

@@ -60,10 +60,8 @@ body #ingame div {
   border-radius: 10px;
   cursor: pointer;
   perspective: 1000px;
-}
-body #ingame div:hover {
-  transform: rotateY(180deg);
   transition: 0.5s ease-in;
+  transform: rotateY(180deg);
 }
 body #Endgame {
   position: fixed;
@@ -107,6 +105,9 @@ body #Endgame #EndgameContent #signOut {
 }
 body .hide {
   display: none;
+}
+body .clear {
+  opacity: 0;
 }
 
 /*# sourceMappingURL=App.css.map */
