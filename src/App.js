@@ -16,9 +16,10 @@ const firestore = firebase.firestore();
 function Main(){
 
   let [score, setScore] = useState(0);
+  let [lives, setLives] = useState(5);
 
   return (<div>
-    <Navbar score={score}/>
+    <Navbar score={score} lives={lives}/>
     <Ingame/>
   </div>)
 }

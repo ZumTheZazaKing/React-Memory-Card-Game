@@ -6,7 +6,10 @@ export default function Navbar(props){
             <img src={auth.currentUser.photoURL} alt="pp" width="50" height="50"/>
             <p>{auth.currentUser.displayName}</p>
         </div>
-        <p>Score: {props.score}</p> 
+        <div>
+            <p>Score: {props.score}</p>
+            <p>Lives: {props.lives}</p>
+        </div> 
         <SignOut/>
     </div>)
 }
