@@ -7,7 +7,7 @@ export default function Navbar(props){
             <p>{auth.currentUser.displayName}</p>
         </div>
         <div>
-            <p>Score: {props.score}</p>
+            <p>Time: {props.time}s</p>
             <p>Lives: {props.lives}</p>
         </div> 
         <SignOut/>

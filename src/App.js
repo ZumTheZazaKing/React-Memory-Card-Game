@@ -16,12 +16,11 @@ const firestore = firebase.firestore();
 
 function Main(){
 
-  let [score, setScore] = useState(0);
   let [lives, setLives] = useState(5);
   let [time, setTime] = useState(0);
 
   return (<div>
-    <Navbar score={score} lives={lives}/>
+    <Navbar time={time} lives={lives}/>
     <Ingame/>
     <Endgame time={time}/>
   </div>)
