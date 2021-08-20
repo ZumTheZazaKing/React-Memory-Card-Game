@@ -18,11 +18,12 @@ function Main(){
 
   let [score, setScore] = useState(0);
   let [lives, setLives] = useState(5);
+  let [time, setTime] = useState(0);
 
   return (<div>
     <Navbar score={score} lives={lives}/>
     <Ingame/>
-    <Endgame/>
+    <Endgame time={time}/>
   </div>)
 }
 
