@@ -34,6 +34,13 @@ export default function Ingame(props){
         setImages(shuffle(images));
     },[])
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            props.setTime(props.time + 1);
+        },1000)
+        return () => {clearInterval(interval)}
+    },[props.time])
+
     const handleClick = e =>{
 
         if(!e.target.querySelector("img"))return;
@@ -52,15 +59,27 @@ export default function Ingame(props){
 
             if(e.target.querySelector("img").src === props.previousCard.querySelector("img").src){
                 console.log("It matches!");
+                props.setScore(props.score + 1);
 
                 setTimeout(() => {
                     e.target.className = "clear";
                     props.previousCard.className = "clear";
                 },1000)
 
+                if(props.score + 1 === 6){
+                    props.setEndgameMessage("YOU WIN!");
+                    props.setRecordTime(props.time);
+                    setTimeout(() => {
+                        props.endgameRef.current.className = "";
+                    },2000)
+                }
+
 
             } else {
                 console.log("It doesn't match!");
+
+                props.setLives(props.lives - 1);
+                console.log(props.lives - 1)
 
                 setTimeout(() => {
                     e.target.style.transform = "rotateY(180deg)";
@@ -70,6 +89,15 @@ export default function Ingame(props){
                     e.target.querySelector("img").className = "hide";
                     props.previousCard.querySelector("img").className = "hide";
                 },1300)
+
+
+                if(props.lives - 1 === 0){
+                    props.setEndgameMessage("GAME OVER");
+                    props.setRecordTime(props.time);
+                    setTimeout(() => {
+                        props.endgameRef.current.className = "";
+                    },2000)
+                }
 
             }
         }

@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import firebase from './firebase';
 import 'firebase/auth';
@@ -16,23 +16,36 @@ const firestore = firebase.firestore();
 
 function Main(){
 
-  let [lives, setLives] = useState(5);
+  let [lives, setLives] = useState(8);
   let [time, setTime] = useState(0);
+  let [score, setScore] = useState(0);
   let [searchingPhase, setSearchingPhase] = useState(false);
   let [previousCard, setPreviousCard] = useState("");
+  let [endgameMessage, setEndgameMessage] = useState("");
+  let [recordTime, setRecordTime] = useState(0);
+
+  let endgameRef = useRef();
 
   return (<div>
     <Navbar time={time} lives={lives}/>
 
     <Ingame 
-    searchingPhase={searchingPhase} 
+    searchingPhase={searchingPhase}
+    lives={lives}
     setLives={setLives} 
     previousCard={previousCard}
     setSearchingPhase={setSearchingPhase}
     setPreviousCard={setPreviousCard}
+    score={score}
+    setScore={setScore}
+    endgameRef={endgameRef}
+    setEndgameMessage={setEndgameMessage}
+    time={time}
+    setTime={setTime}
+    setRecordTime={setRecordTime}
     />
 
-    <Endgame time={time}/>
+    <Endgame recordTime={recordTime} endgameRef={endgameRef} endgameMessage={endgameMessage}/>
   </div>)
 }
 

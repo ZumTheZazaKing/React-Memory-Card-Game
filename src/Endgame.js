@@ -1,10 +1,10 @@
 import { SignOut } from "./Auth";
 
 export function Endgame(props){
-    return (<div id="Endgame" className="hide">
+    return (<div id="Endgame" className="hide" ref={props.endgameRef}>
         <div id="EndgameContent">
-            <p>You won!</p>
-            <p>Time Taken: {props.time}s</p>
+            <p id="message">{props.endgameMessage}</p>
+            <p>Time Taken: {props.recordTime}s</p>
             <br/>
             <button id="playAgain">Play Again</button>
             <br/><br/>

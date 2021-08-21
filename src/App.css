@@ -103,6 +103,9 @@ body #Endgame #EndgameContent #signOut {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
 }
+body #Endgame #EndgameContent #message {
+  font-weight: 700;
+}
 body .hide {
   display: none;
 }
