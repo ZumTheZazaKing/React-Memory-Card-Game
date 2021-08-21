@@ -1,7 +1,6 @@
 import './App.css';
 import { useState, useRef } from 'react';
 
-import firebase from './firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
 
@@ -11,8 +10,6 @@ import { SignIn, auth } from './Auth';
 import Navbar from './Navbar';
 import Ingame from './Ingame';
 import { Endgame } from './Endgame';
-
-const firestore = firebase.firestore();
 
 function Main(){
 

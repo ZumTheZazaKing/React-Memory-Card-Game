@@ -7,8 +7,15 @@ import css from './images/css.png';
 
 import { useState,useEffect } from 'react';
 
+import firebase from './firebase';
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
 
 export default function Ingame(props){
+
+    const docRef = firestore.collection("leaderboard").doc(auth.currentUser.uid);
 
     props.setStartGame(true);
 
@@ -80,6 +87,23 @@ export default function Ingame(props){
 
                 if(props.score + 1 === 6){
                     props.setEndgameMessage("YOU WIN!");
+
+                    docRef.get().then(doc => {
+                        if(doc.exists){
+                            docRef.get().then(data => {
+                                if(data.data().time < props.time){
+                                    docRef.set({time:props.time})
+                                }
+                            })
+                        } else {
+                            docRef.set({
+                                name:auth.currentUser.displayName,
+                                photoURL:auth.currentUser.photoURL,
+                                time:props.time
+                            })
+                        }
+                    })
+
                     props.setRecordTime(props.time);
                     setTimeout(() => {
                         props.endgameRef.current.className = "";

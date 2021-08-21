@@ -76,20 +76,21 @@ body #Endgame {
 }
 body #Endgame #EndgameContent {
   background-color: lightgray;
-  width: 70%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
   margin-top: 50px;
   text-align: center;
   padding-bottom: 30px;
+  border-radius: 10px;
 }
-body #Endgame #EndgameContent p {
+body #Endgame #EndgameContent #basic p {
   margin: 10px;
   padding: 0;
   font-size: 20px;
 }
-body #Endgame #EndgameContent #playAgain, body #Endgame #EndgameContent #signOut {
+body #Endgame #EndgameContent #basic #playAgain, body #Endgame #EndgameContent #basic #board, body #Endgame #EndgameContent #basic #signOut {
   padding: 5px 10px;
   font-size: 16px;
   border: none;
@@ -98,13 +99,66 @@ body #Endgame #EndgameContent #playAgain, body #Endgame #EndgameContent #signOut
   cursor: pointer;
   font-weight: 500;
 }
-body #Endgame #EndgameContent #signOut {
+body #Endgame #EndgameContent #basic #signOut {
   font-size: 14px;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
 }
-body #Endgame #EndgameContent #message {
+body #Endgame #EndgameContent #basic #message {
   font-weight: 700;
+}
+body #Endgame #EndgameContent #basic #board {
+  background-color: orange;
+}
+body #Endgame #EndgameContent #leaderboard #back {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+body #Endgame #EndgameContent #leaderboard img {
+  border-radius: 50px;
+}
+body #Endgame #EndgameContent #leaderboard #header {
+  background-color: orange;
+}
+body #Endgame #EndgameContent #leaderboard #timeHeader {
+  background-color: green;
+}
+body #Endgame #EndgameContent #leaderboard table {
+  margin-left: auto;
+  margin-right: auto;
+}
+body #Endgame #EndgameContent #leaderboard tr {
+  border: 2px solid black;
+  border-right: none;
+  border-left: none;
+}
+body #Endgame #EndgameContent #leaderboard tr:first-child {
+  border-top: none;
+}
+body #Endgame #EndgameContent #leaderboard tr:last-child {
+  border-bottom: none;
+}
+body #Endgame #EndgameContent #leaderboard tr:nth-child(2) {
+  font-weight: 700;
+  color: orange;
+}
+body #Endgame #EndgameContent #leaderboard tr:nth-child(3) {
+  font-weight: 700;
+  color: grey;
+}
+body #Endgame #EndgameContent #leaderboard tr:nth-child(4) {
+  font-weight: 700;
+  color: brown;
+}
+body #Endgame #EndgameContent #leaderboard table, body #Endgame #EndgameContent #leaderboard th, body #Endgame #EndgameContent #leaderboard td {
+  border-collapse: collapse;
+  padding: 10px;
+  background-color: white;
 }
 body .hide {
   display: none;
