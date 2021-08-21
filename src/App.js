@@ -23,6 +23,7 @@ function Main(){
   let [previousCard, setPreviousCard] = useState("");
   let [endgameMessage, setEndgameMessage] = useState("");
   let [recordTime, setRecordTime] = useState(0);
+  let [startGame, setStartGame] = useState(false);
 
   let endgameRef = useRef();
 
@@ -34,14 +35,18 @@ function Main(){
     setPreviousCard("");
     setEndgameMessage("");
     setRecordTime(0);
+    setStartGame(false);
 
-    endgameRef.current.className = "hide"
+    endgameRef.current.className = "hide";
+    
   }
 
   return (<div>
     <Navbar time={time} lives={lives}/>
 
-    <Ingame 
+    <Ingame
+    setStartGame={setStartGame}
+    startGame={startGame}
     searchingPhase={searchingPhase}
     lives={lives}
     setLives={setLives} 
@@ -57,7 +62,12 @@ function Main(){
     setRecordTime={setRecordTime}
     />
 
-    <Endgame recordTime={recordTime} endgameRef={endgameRef} endgameMessage={endgameMessage}/>
+    <Endgame 
+    recordTime={recordTime} 
+    endgameRef={endgameRef} 
+    endgameMessage={endgameMessage}
+    playAgain={playAgain}
+    />
   </div>)
 }
 

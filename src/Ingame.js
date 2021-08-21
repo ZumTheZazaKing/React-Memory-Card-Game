@@ -10,6 +10,8 @@ import { useState,useEffect } from 'react';
 
 export default function Ingame(props){
 
+    props.setStartGame(true);
+
     const [images, setImages] = useState([Angular,Vue,logo,Vue,logo,Angular,javascript,nodejs,css,javascript,nodejs,css]);
 
     function shuffle(array) {
@@ -32,7 +34,12 @@ export default function Ingame(props){
 
     useEffect(() => {
         setImages(shuffle(images));
-    },[])
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.className = "card";
+            card.querySelector("img").className = "hide";
+        });
+    },[props.startGame])
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -58,12 +65,12 @@ export default function Ingame(props){
             props.setPreviousCard(e.target);
 
             if(e.target.querySelector("img").src === props.previousCard.querySelector("img").src){
-                console.log("It matches!");
+
                 props.setScore(props.score + 1);
 
                 setTimeout(() => {
-                    e.target.className = "clear";
-                    props.previousCard.className = "clear";
+                    e.target.className += " clear";
+                    props.previousCard.className += " clear";
                 },1000)
 
                 setTimeout(() => {
@@ -76,12 +83,11 @@ export default function Ingame(props){
                     props.setRecordTime(props.time);
                     setTimeout(() => {
                         props.endgameRef.current.className = "";
-                    },2000)
+                    },1500)
                 }
 
 
             } else {
-                console.log("It doesn't match!");
 
                 props.setLives(props.lives - 1);
                 console.log(props.lives - 1)
@@ -101,7 +107,7 @@ export default function Ingame(props){
                     props.setRecordTime(props.time);
                     setTimeout(() => {
                         props.endgameRef.current.className = "";
-                    },2000)
+                    },1500)
                 }
 
             }
@@ -115,7 +121,7 @@ export default function Ingame(props){
 }
 
 function Card(props){
-    return (<div onClick={e => props.handleClick(e)}>
+    return (<div className="card" onClick={e => props.handleClick(e)}>
         <img src={props.image} alt="Card" width="50" height="50" className="hide"/>
     </div>)
 }

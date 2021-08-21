@@ -6,7 +6,7 @@ export function Endgame(props){
             <p id="message">{props.endgameMessage}</p>
             <p>Time Taken: {props.recordTime}s</p>
             <br/>
-            <button id="playAgain">Play Again</button>
+            <button id="playAgain" onClick={e => props.playAgain()}>Play Again</button>
             <br/><br/>
             <SignOut/>
         </div>
