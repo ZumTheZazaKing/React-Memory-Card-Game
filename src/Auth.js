@@ -7,7 +7,10 @@ export function SignIn(){
         auth.signInWithPopup(provider)
     }
   
-    return (<div>
+    return (<div id="SignIn">
+        <h2>Memory Card Game</h2>
+        <p>How fast can you find the matching cards?</p>
+        <p>Once you sign in, it's straight into the field!</p>
         <button onClick={signInWithGoogle}>Sign in with Google</button>
     </div>)
 }
