@@ -66,6 +66,11 @@ export default function Ingame(props){
                     props.previousCard.className = "clear";
                 },1000)
 
+                setTimeout(() => {
+                    e.target.className += " hidden";
+                    props.previousCard.className += " hidden";
+                },1500)
+
                 if(props.score + 1 === 6){
                     props.setEndgameMessage("YOU WIN!");
                     props.setRecordTime(props.time);

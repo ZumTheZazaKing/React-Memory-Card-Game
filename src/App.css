@@ -112,5 +112,8 @@ body .hide {
 body .clear {
   opacity: 0;
 }
+body .hidden {
+  visibility: hidden;
+}
 
 /*# sourceMappingURL=App.css.map */

@@ -26,6 +26,18 @@ function Main(){
 
   let endgameRef = useRef();
 
+  function playAgain(){
+    setLives(8);
+    setTime(0);
+    setScore(0);
+    setSearchingPhase(false);
+    setPreviousCard("");
+    setEndgameMessage("");
+    setRecordTime(0);
+
+    endgameRef.current.className = "hide"
+  }
+
   return (<div>
     <Navbar time={time} lives={lives}/>
 
