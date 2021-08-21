@@ -71,12 +71,12 @@ export default function Ingame(props){
                 setTimeout(() => {
                     e.target.className += " clear";
                     props.previousCard.className += " clear";
-                },1000)
+                },700)
 
                 setTimeout(() => {
                     e.target.className += " hidden";
                     props.previousCard.className += " hidden";
-                },1500)
+                },1200)
 
                 if(props.score + 1 === 6){
                     props.setEndgameMessage("YOU WIN!");
@@ -90,16 +90,15 @@ export default function Ingame(props){
             } else {
 
                 props.setLives(props.lives - 1);
-                console.log(props.lives - 1)
 
                 setTimeout(() => {
                     e.target.style.transform = "rotateY(180deg)";
                     props.previousCard.style.transform = "rotateY(180deg)";
-                },1000)
+                },700)
                 setTimeout(() => {
                     e.target.querySelector("img").className = "hide";
                     props.previousCard.querySelector("img").className = "hide";
-                },1300)
+                },1000)
 
 
                 if(props.lives - 1 === 0){
