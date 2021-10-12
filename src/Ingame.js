@@ -92,7 +92,7 @@ export default function Ingame(props){
                         if(doc.exists){
                             docRef.get().then(data => {
                                 if(data.data().time < props.time){
-                                    docRef.set({time:props.time})
+                                    docRef.update({time:props.time})
                                 }
                             })
                         } else {
